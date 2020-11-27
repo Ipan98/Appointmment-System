@@ -1,0 +1,15 @@
+{% extends "appointment/layout.html" %}
+
+{% block body %}
+
+    <h1>View appointment</h1>
+<form action="{% url 'view' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <input class="form-control" type="NUMBER" name="ID" placeholder="Appointment ID">
+        </div>
+        <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+
+
+{% endblock %}

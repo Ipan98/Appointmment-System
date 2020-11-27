@@ -1,0 +1,14 @@
+{% extends "appointment/layout.html" %}
+
+{% block body %}
+
+
+    <ul>
+    {% for user in users %}
+        <li>{{ user.name }}  Subject: {{ user.subject }}  Date: {{ user.day }} Hour: {{ user.hour }}</li>
+    {% endfor %}
+</ul>
+
+
+
+{% endblock %}

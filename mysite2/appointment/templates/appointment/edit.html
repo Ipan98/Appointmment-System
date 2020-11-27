@@ -1,0 +1,33 @@
+{% extends "appointment/layout.html" %}
+
+{% block body %}
+
+    <h1>Edit appointment</h1>
+
+{% if client %}
+    <form action="{% url 'edit' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+            <input class="form-control" autofocus type="text" name="name" value="{{ client.name }}"placeholder="name">
+    </div>
+    <div class="form-group">
+            <input class="form-control" autofocus type="number" name="phone" value="{{ client.phone }}"placeholder="name">
+    </div>
+    <div class="form-group">
+            <input class="form-control" autofocus type="email" name="email" value="{{ client.email }}"placeholder="Email">
+    </div>
+    <div class="form-group">
+            <input class="form-control" autofocus type="text" name="subject" value="{{ client.subject }}"placeholder="Subject">
+    </div>
+    <input type="submit" value="Save">
+    </form>
+ {% else %}
+ <form action="{% url 'edit' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <input class="form-control" type="NUMBER" name="ID" placeholder="Appointment ID">
+        </div>
+        <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+{% endif %}
+{% endblock %}
