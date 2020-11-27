@@ -1,0 +1,18 @@
+{% extends "appointment/layout.html" %}
+
+{% block body %}
+
+    <h2>Make an appointment</h2>
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+    <form action="{% url 'appointment' %}" method="post">
+    {% csrf_token %}
+    {{ visitor_form.as_p }}
+    <input type="submit" value="Save">
+</form>
+
+
+{% endblock %}
